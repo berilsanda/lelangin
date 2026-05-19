@@ -1,2 +1,2 @@
-// Exports added as hooks are implemented (DEV-4.1)
-// export * from './useProfile';
+export * from './use-profile';
+export * from './use-update-profile';
