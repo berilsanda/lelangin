@@ -1,3 +1,2 @@
-// Exports added as hooks are implemented (DEV-3.1)
-// export * from './useBids';
-// export * from './usePlaceBid';
+export { usePlaceBid } from './use-place-bid';
+export { useBidHistory } from './use-bid-history';
