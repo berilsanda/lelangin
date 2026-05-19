@@ -1,2 +1,2 @@
-// Exports added as hooks are implemented (DEV-1.2)
-// export * from './useAuth';
+export * from './use-login';
+export * from './use-register';

@@ -1,10 +1,13 @@
-// TODO: delegate to src/features/auth/
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+
+import { LoginForm } from '@/features/auth/components';
+import { colors } from '@/constants/colors';
+import { spacing } from '@/constants/spacing';
 
 export default function LoginScreen() {
   return (
     <View style={styles.container}>
-      <Text>Login</Text>
+      <LoginForm />
     </View>
   );
 }
@@ -12,7 +15,8 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    backgroundColor: colors.background,
+    padding: spacing.lg,
     justifyContent: 'center',
   },
 });

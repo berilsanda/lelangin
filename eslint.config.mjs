@@ -54,7 +54,10 @@ export default tseslint.config(
       ],
       'check-file/filename-naming-convention': [
         'error',
-        { 'src/**/*.{ts,tsx}': 'KEBAB_CASE' },
+        {
+          'src/**/*.tsx': 'PASCAL_CASE',
+          'src/**/*.ts': 'KEBAB_CASE',
+        },
         { ignoreMiddleExtensions: true },
       ],
       'no-console': 'error',

@@ -12,33 +12,38 @@ import { queryClient } from '@/services/query-client';
 import { useAuthStore } from '@/store/auth-store';
 
 function AuthGuard() {
-  const { user, isLoading, setUser, setLoading } = useAuthStore();
+  const { user, isHydrated, setAuth, clearAuth } = useAuthStore();
   const router = useRouter();
   const segments = useSegments();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(
-        user
-          ? {
-              uid: user.uid,
-              email: user.email,
-              displayName: user.displayName,
-              photoURL: user.photoURL,
-            }
-          : null,
-      );
-      setLoading(false);
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if (firebaseUser) {
+        firebaseUser.getIdToken().then((token) => {
+          setAuth(
+            {
+              uid: firebaseUser.uid,
+              email: firebaseUser.email,
+              displayName: firebaseUser.displayName,
+              photoURL: firebaseUser.photoURL,
+              emailVerified: firebaseUser.emailVerified,
+            },
+            token,
+          );
+        });
+      } else {
+        clearAuth();
+      }
     });
     return unsubscribe;
-  }, [setUser, setLoading]);
+  }, [setAuth, clearAuth]);
 
   useEffect(() => {
-    if (isLoading) return;
+    if (!isHydrated) return;
     const inAuthGroup = segments[0] === '(auth)';
     if (!user && !inAuthGroup) router.replace('/(auth)/login');
     if (user && inAuthGroup) router.replace('/(tabs)/');
-  }, [user, isLoading, segments, router]);
+  }, [user, isHydrated, segments, router]);
 
   return null;
 }
