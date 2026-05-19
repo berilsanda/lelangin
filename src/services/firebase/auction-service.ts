@@ -22,10 +22,11 @@ import {
   where,
   type WithFieldValue,
 } from 'firebase/firestore';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 
 import type { Auction, AuctionFilters, CreateAuctionPayload } from '@/types';
 
-import { db } from './firebase-config';
+import { db, storage } from './firebase-config';
 
 const AUCTIONS_COLLECTION = 'auctions';
 const DEFAULT_PAGE_SIZE = 20;
@@ -169,4 +170,21 @@ export function subscribeToAuction(id: string, cb: (auction: Auction) => void): 
     const data = snapshot.data();
     if (data) cb(data);
   });
+}
+
+/**
+ * Upload an array of local image URIs to Firebase Storage under
+ * `auctions/{sellerId}/{filename}` and return the public download URLs.
+ * @throws {Error} if any upload fails
+ */
+export async function uploadAuctionImages(sellerId: string, uris: string[]): Promise<string[]> {
+  const uploads = uris.map(async (uri) => {
+    const filename = uri.split('/').pop() ?? `${Date.now()}.jpg`;
+    const storageRef = ref(storage, `auctions/${sellerId}/${filename}`);
+    const response = await fetch(uri);
+    const blob = await response.blob();
+    const snapshot = await uploadBytes(storageRef, blob);
+    return getDownloadURL(snapshot.ref);
+  });
+  return Promise.all(uploads);
 }
