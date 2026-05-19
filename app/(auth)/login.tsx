@@ -1,9 +1,10 @@
-import { Text, View, StyleSheet } from 'react-native';
+// TODO: delegate to src/features/auth/
+import { View, Text, StyleSheet } from 'react-native';
 
-export default function HomeScreen() {
+export default function LoginScreen() {
   return (
     <View style={styles.container}>
-      <Text>Lelangin</Text>
+      <Text>Login</Text>
     </View>
   );
 }

@@ -9,7 +9,7 @@ import prettierConfig from 'eslint-config-prettier';
 
 export default tseslint.config(
   {
-    ignores: ['node_modules/', 'dist/', '.expo/', 'ios/', 'android/', 'coverage/'],
+    ignores: ['**/node_modules/**', 'dist/', '.expo/', 'ios/', 'android/', 'coverage/'],
   },
   ...tseslint.configs.strict,
   prettierConfig,
@@ -30,6 +30,13 @@ export default tseslint.config(
     },
     settings: {
       react: { version: 'detect' },
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+          project: './tsconfig.json',
+        },
+      },
+      'import/ignore': ['node_modules'],
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -63,6 +70,20 @@ export default tseslint.config(
           selector: 'variable',
           modifiers: ['const', 'exported'],
           format: ['UPPER_CASE', 'camelCase'],
+        },
+      ],
+    },
+  },
+  {
+    files: ['**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector:
+            'CallExpression[callee.object.name="StyleSheet"][callee.property.name="create"] Literal[typeofValue="number"]',
+          message:
+            'Avoid inline numeric literals in StyleSheet.create(). Use tokens from src/constants/ instead.',
         },
       ],
     },
