@@ -63,6 +63,7 @@
     "@testing-library/jest-native": "^5",
     "@testing-library/react-native": "^12",
     "@testing-library/user-event": "^14",
+    "@types/jest": "^30.0.0",
     "@types/react": "~19.1.0",
     "eslint": "^9",
     "eslint-config-prettier": "^10",
