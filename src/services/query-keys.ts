@@ -1,10 +1,11 @@
+import type { AuctionFilters } from '@/types';
+
 export const queryKeys = {
   auctions: {
     all: ['auctions'] as const,
-    lists: () => [...queryKeys.auctions.all, 'list'] as const,
-    list: (filter: string) => [...queryKeys.auctions.lists(), { filter }] as const,
-    details: () => [...queryKeys.auctions.all, 'details'] as const,
-    detail: (id: string) => [...queryKeys.auctions.details(), id] as const,
+    list: (filters?: AuctionFilters) => ['auctions', 'list', filters] as const,
+    detail: (id: string) => ['auctions', id] as const,
+    bids: (auctionId: string) => ['auctions', auctionId, 'bids'] as const,
   },
   bids: {
     all: ['bids'] as const,
