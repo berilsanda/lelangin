@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1779258083188" clover="3.2.0">
+  <project timestamp="1779258083188" name="All files">
+    <metrics statements="1" coveredstatements="1" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1" elements="3" coveredelements="3" complexity="0" loc="1" ncloc="1" packages="1" files="1" classes="1"/>
+    <file name="currency.ts" path="/Users/ss/Documents/learn/lelangin/src/utils/currency.ts">
+      <metrics statements="1" coveredstatements="1" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <line num="9" count="9" type="stmt"/>
+    </file>
+  </project>
+</coverage>

@@ -1,0 +1,29 @@
+{
+  "/Users/ss/Documents/learn/lelangin/src/utils/currency.ts": {
+    "path": "/Users/ss/Documents/learn/lelangin/src/utils/currency.ts",
+    "statementMap": {
+      "0": { "start": { "line": 9, "column": 2 }, "end": { "line": 12, "column": 20 } }
+    },
+    "fnMap": {
+      "0": {
+        "name": "formatCurrency",
+        "decl": { "start": { "line": 8, "column": 16 }, "end": { "line": 8, "column": 30 } },
+        "loc": { "start": { "line": 8, "column": 81 }, "end": { "line": 13, "column": 1 } },
+        "line": 8
+      }
+    },
+    "branchMap": {
+      "0": {
+        "loc": { "start": { "line": 8, "column": 47 }, "end": { "line": 8, "column": 71 } },
+        "type": "default-arg",
+        "locations": [{ "start": { "line": 8, "column": 64 }, "end": { "line": 8, "column": 71 } }],
+        "line": 8
+      }
+    },
+    "s": { "0": 9 },
+    "f": { "0": 9 },
+    "b": { "0": [8] },
+    "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    "hash": "1ebd0be8147c137535d98e4370e33e9234b01065"
+  }
+}

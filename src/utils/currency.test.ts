@@ -29,4 +29,21 @@ describe('formatCurrency', () => {
   it('returns a string', () => {
     expect(typeof formatCurrency(100)).toBe('string');
   });
+
+  it('formats 150000 with IDR locale containing Rp and 150', () => {
+    const result = formatCurrency(150000);
+    expect(result).toContain('Rp');
+    expect(result).toContain('150');
+  });
+
+  it('formats zero containing 0', () => {
+    const result = formatCurrency(0);
+    expect(result).toContain('0');
+  });
+
+  it('handles negative amounts without throwing', () => {
+    expect(() => formatCurrency(-500)).not.toThrow();
+    const result = formatCurrency(-500);
+    expect(typeof result).toBe('string');
+  });
 });
