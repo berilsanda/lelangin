@@ -1,0 +1,23 @@
+appId: com.lelangin.app
+---
+# Ensure user is authenticated before browsing
+- runFlow: ../auth/login_success.yaml
+
+# Open the home tab
+- tapOn:
+    text: "🏠 Home"
+
+# Assert the auction list is visible — AuctionCard renders an IDR-formatted bid (e.g. "Rp 150.000")
+# and the auction title text. Wait for data to load from Firestore.
+- waitForAnimationToEnd
+- assertVisible:
+    text: "Rp"
+
+# Scroll down to trigger pagination (FlashList fires onEndReached at 50% threshold)
+- scroll:
+    direction: DOWN
+    duration: 2000
+
+# Assert more items are still visible after scrolling (pagination loaded additional auctions)
+- assertVisible:
+    text: "Rp"

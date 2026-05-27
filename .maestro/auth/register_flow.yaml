@@ -1,0 +1,22 @@
+appId: com.lelangin.app
+---
+- launchApp
+- openLink: lelangin://register
+- tapOn:
+    text: "Your name"
+- inputText: "Test User"
+- tapOn:
+    text: "you@example.com"
+- inputText: ${TEST_EMAIL}
+- tapOn:
+    text: "••••••••"
+    index: 0
+- inputText: ${TEST_PASSWORD}
+- tapOn:
+    text: "••••••••"
+    index: 1
+- inputText: ${TEST_PASSWORD}
+- tapOn:
+    text: "Create Account"
+- assertVisible:
+    text: "🏠 Home"

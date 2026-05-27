@@ -1,0 +1,22 @@
+appId: com.lelangin.app
+---
+# Navigate to auction detail (handles login + navigation)
+- runFlow: view_auction_detail.yaml
+
+# Type a bid amount well above any realistic current bid
+- tapOn:
+    id: "Bid amount"
+- clearText
+- inputText: "999999999"
+
+# Tap the Place Bid button
+- tapOn:
+    text: "Place Bid"
+
+# Assert success feedback is visible after bid is placed
+- assertVisible:
+    text: "Bid placed"
+
+# Assert the new bid amount is now shown as the current bid
+- assertVisible:
+    text: "Rp 999.999.999"

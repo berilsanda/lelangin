@@ -1,0 +1,13 @@
+appId: com.lelangin.app
+---
+- runFlow: ../auth/login_success.yaml
+- tapOn:
+    index: 0
+- assertVisible:
+    text: "Current Highest Bid"
+- assertVisible:
+    text: "Time Remaining"
+- assertVisible:
+    text: "Place Bid"
+- assertVisible:
+    id: "Bid amount"

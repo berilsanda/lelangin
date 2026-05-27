@@ -1,0 +1,15 @@
+appId: com.lelangin.app
+---
+- launchApp
+- tapOn:
+    text: "you@example.com"
+- inputText: ${TEST_EMAIL}
+- tapOn:
+    text: "••••••••"
+- inputText: ${TEST_PASSWORD}
+- tapOn:
+    text: "Sign In"
+- assertVisible:
+    text: "🏠 Home"
+- assertVisible:
+    text: "👤 Profile"
