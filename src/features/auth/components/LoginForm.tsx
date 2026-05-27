@@ -87,7 +87,7 @@ export function LoginForm() {
         accessibilityState={{ disabled: isPending }}
       >
         {isPending ? (
-          <ActivityIndicator color={colors.surface} />
+          <ActivityIndicator testID="activity-indicator" color={colors.surface} />
         ) : (
           <Text style={styles.buttonText}>Sign In</Text>
         )}

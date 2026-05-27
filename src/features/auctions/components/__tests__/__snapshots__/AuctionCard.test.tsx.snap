@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuctionCard matches snapshot 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#FFFFFF",
+      "borderColor": "#E5E7EB",
+      "borderRadius": 12,
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "marginBottom": 8,
+      "overflow": "hidden",
+    }
+  }
+>
+  <ViewManagerAdapter_ExpoImage
+    containerViewRef={"[React.ref]"}
+    contentFit="cover"
+    contentPosition={
+      {
+        "left": "50%",
+        "top": "50%",
+      }
+    }
+    height={100}
+    nativeViewRef={"[React.ref]"}
+    onError={[Function]}
+    onLoad={[Function]}
+    onLoadStart={[Function]}
+    onProgress={[Function]}
+    placeholder={
+      [
+        {
+          "height": 16,
+          "uri": "blurhash:/L6PZfSi_.AyE_3t7t7R**0o%23DgR4",
+          "width": 16,
+        },
+      ]
+    }
+    source={[]}
+    style={
+      {
+        "height": 100,
+        "width": 100,
+      }
+    }
+    transition={
+      {
+        "duration": 200,
+      }
+    }
+    width={100}
+  />
+  <View
+    style={
+      {
+        "flex": 1,
+        "gap": 4,
+        "padding": 16,
+      }
+    }
+  >
+    <Text
+      numberOfLines={2}
+      style={
+        {
+          "color": "#111827",
+          "fontFamily": "NunitoSans_600SemiBold",
+          "fontSize": 14,
+        }
+      }
+    >
+      Test Auction
+    </Text>
+    <Text
+      style={
+        {
+          "color": "#F97316",
+          "fontFamily": "NunitoSans_800ExtraBold",
+          "fontSize": 16,
+        }
+      }
+    >
+      Rp 100.000
+    </Text>
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "gap": 8,
+          "marginTop": 4,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#6B7280",
+            "fontFamily": "NunitoSans_400Regular",
+            "fontSize": 12,
+          }
+        }
+      >
+        24 hours
+      </Text>
+      <View
+        style={
+          [
+            {
+              "alignSelf": "flex-start",
+              "borderRadius": 9999,
+              "paddingHorizontal": 8,
+              "paddingVertical": 4,
+            },
+            {
+              "backgroundColor": "#DCFCE7",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "NunitoSans_700Bold",
+                "fontSize": 12,
+              },
+              {
+                "color": "#15803D",
+              },
+            ]
+          }
+        >
+          Active
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
